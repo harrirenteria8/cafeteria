@@ -1,0 +1,12 @@
+1 ) Prodocto con Mayor Stock
+
+SELECT * FROM `producto` ORDER BY stock DESC LIMIT 1;
+
+2 ) Producto mas vendido
+
+SELECT  count(*) as numero_ventas, p.id, p.nombre_producto, p.referencia, p.precio, p.peso, p.categoria, p.stock, p.fecha
+FROM `venta` v, producto p 
+WHERE p.id = v.id_producto
+GROUP BY p.id
+ORDER BY numero_ventas DESC 
+LIMIT 1
